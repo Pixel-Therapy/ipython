@@ -560,6 +560,8 @@ class CompletionSplitter(object):
     def split_line(self, line, cursor_pos=None):
         """Split a line of text with a cursor at the given position.
         """
+        if line is None:
+            line = ""
         l = line if cursor_pos is None else line[:cursor_pos]
         return self._delim_re.split(l)[-1]
 
